@@ -26,4 +26,5 @@ In order to see the website you just need to open the `index.html` file in your 
 ## Acknowledgments
 
 * [favicon image](https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png)
+* Udemy Course on [ReactJs and Flux:Learn By Bulding 10 Projects By Brad Traversy](https://www.udemy.com/reactjs-and-flux-learn-by-building-10-projects/) 
 * Hat tip to anyone who's code was used.
