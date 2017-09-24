@@ -1,0 +1,42 @@
+For browserify and Flux
+npm init
+creates a package.json
+
+
+Update the dependencies and devDependencies in the json file and run 
+npm install
+
+And then create the required project files folder
+
+After this create a gulpfile.js  file with the following content
+
+var gulp = require('gulp');
+var browserify = require('browserify');
+var reactify = require('reactify');
+var source = require('vinyl-source-stream');
+
+gulp.task('browserify', function(){
+	browserify('./src/js/main.js')
+		.transform('reactify')
+		.bundle()
+		.pipe(source('main.js'))
+		.pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('copy', function(){
+	gulp.src('src/index.html')
+		.pipe(gulp.dest('dist'));
+	gulp.src('src/css/*.*')
+		.pipe(gulp.dest('dist/css'));
+	gulp.src('src/js/vendors/*.*')
+		.pipe(gulp.dest('dist/js'));
+})
+
+gulp.task('default', ['browserify', 'copy'], function(){
+	return gulp.watch('src/**/*.*', ['browserify', 'copy']);
+});
+
+and run gulp
+
+This will create a dist folder with all the required files and all compiled in main.js
+
